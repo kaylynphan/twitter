@@ -31,12 +31,12 @@ static NSString * const baseURLString = @"https://api.twitter.com";
     
     // TODO: fix code below to pull API Keys from your new Keys.plist file
     
-    //NSString *path;
-    //NSDictionary *dict;
-    NSString *key = @"7FOyq6SzBq5GJp5lZqju49jyF";
-    NSString *secret = @"oCniTwC4taKJ2ClcsbUTyMJK171gcGpu50kmcnCiPWbWRXshSU";
+    NSString *path;
+    NSDictionary *dict;
+    NSString *key;
+    NSString *secret;
     
-    NSString *token = @"AAAAAAAAAAAAAAAAAAAAAMLsdwEAAAAADmbOlpBclZlb3n9UmGGIZS1dJDs%3D5NnV5D8ZoktRNztwl4sA2TtRj5PsCTyAt6UwyCeImuz0mbVZ21";
+    //NSString *token = ;
     
     // Check for launch arguments override
     if ([[NSUserDefaults standardUserDefaults] stringForKey:@"consumer-key"]) {
