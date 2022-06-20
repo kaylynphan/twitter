@@ -36,6 +36,7 @@
         self.user = [[User alloc] initWithDictionary:user];
     
         // TODO: Format and set createdAtString
+        // Format createdAt date string
         NSString *createdAtOriginalString = dictionary[@"created_at"];
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
         // Configure the input format to parse the date string
