@@ -33,8 +33,10 @@ static NSString * const baseURLString = @"https://api.twitter.com";
     
     NSString *path = ;
     NSDictionary *dict = ;
-    NSString *key = ;
-    NSString *secret = ;
+    NSString *key = "7FOyq6SzBq5GJp5lZqju49jyF";
+    NSString *secret = "oCniTwC4taKJ2ClcsbUTyMJK171gcGpu50kmcnCiPWbWRXshSU";
+    
+    NSString *token = "AAAAAAAAAAAAAAAAAAAAAMLsdwEAAAAADmbOlpBclZlb3n9UmGGIZS1dJDs%3D5NnV5D8ZoktRNztwl4sA2TtRj5PsCTyAt6UwyCeImuz0mbVZ21";
     
     // Check for launch arguments override
     if ([[NSUserDefaults standardUserDefaults] stringForKey:@"consumer-key"]) {
