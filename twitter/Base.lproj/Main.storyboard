@@ -250,9 +250,9 @@
                                 <action selector="didTapClose:" destination="wTc-ah-q0R" id="EpJ-PH-Uyx"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Tweet" id="PIR-r6-QrB">
+                        <barButtonItem key="rightBarButtonItem" title="Post" id="tvz-ht-l9N">
                             <connections>
-                                <action selector="didTapTweet:" destination="wTc-ah-q0R" id="PBD-lU-ljB"/>
+                                <action selector="didTapPost:" destination="wTc-ah-q0R" id="oXP-Pu-Ycz"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

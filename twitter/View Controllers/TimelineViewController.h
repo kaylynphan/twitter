@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ComposeViewController.h"
 
-@interface TimelineViewController : UIViewController
+@interface TimelineViewController : UIViewController <ComposeViewControllerDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) NSMutableArray *arrayOfTweets;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+- (void)didTweet:(Tweet *)tweet;
 
 @end

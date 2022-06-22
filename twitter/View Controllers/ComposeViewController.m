@@ -8,11 +8,12 @@
 
 #import "ComposeViewController.h"
 #import "APIManager.h"
+#import "TimelineViewController.h""
 
 @interface ComposeViewController ()
 @property (weak, nonatomic) IBOutlet UITextView *textField;
 - (IBAction)didTapClose:(id)sender;
-- (IBAction)didTapTweet:(id)sender;
+- (IBAction)didTapPost:(id)sender;
 
 @end
 
@@ -33,16 +34,20 @@
 }
 */
 
-- (IBAction)didTapTweet:(id)sender {
-    [[APIManager shared] postStatusWithText:self.textField.text completion:^(Tweet *, NSError *) {
-        [self dismissViewControllerAnimated:true completion:nil];
+
+
+- (IBAction)didTapPost:(id)sender {
+    [[APIManager shared] postStatusWithText:self.textField.text completion:^(Tweet *tweet, NSError *error) {
+        if(error){
+                NSLog(@"Error composing Tweet: %@", error.localizedDescription);
+        }
+        else {
+            [self.delegate didTweet:tweet];
+            [self dismissViewControllerAnimated:true completion:nil];
+            NSLog(@"Compose Tweet Success!");
+        }
     }];
     
-    /*
-    [[APIManager shared] postStatusWithText text:this.textField.text ^(Tweet *, NSError *) {
-        [self dismissViewControllerAnimated:true completion:nil];
-    }];
-     */
 }
 
 - (IBAction)didTapClose:(id)sender {
