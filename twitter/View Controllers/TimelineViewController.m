@@ -29,6 +29,8 @@
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl addTarget:self action:@selector(beginRefresh:) forControlEvents:UIControlEventValueChanged];
+    [self.tableView insertSubview:refreshControl atIndex:0];
     
     // Get timeline
     [self getTimeline];
@@ -46,7 +48,6 @@
                 NSLog(@"%@", tweet.user.name);
             }
              */
-             
             /*for (NSDictionary *dictionary in tweets) {
                 NSString *text = dictionary[@"text"];
                 NSLog(@"%@", text);
@@ -59,7 +60,8 @@
 }
 
 - (void)beginRefresh:(UIRefreshControl *)refreshControl {
-    
+    [self getTimeline];
+    [refreshControl endRefreshing];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
