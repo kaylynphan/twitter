@@ -117,6 +117,9 @@
                                                     </constraints>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" image="retweet-icon" title="0"/>
+                                                    <connections>
+                                                        <action selector="didTapRetweet:" destination="8gA-Mv-RaH" eventType="touchUpInside" id="91U-Iy-Bzt"/>
+                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" restorationIdentifier="dateLabel" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iyU-u7-CoY">
                                                     <rect key="frame" x="266" y="21" width="36" height="21"/>
@@ -132,6 +135,9 @@
                                                     </constraints>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" image="reply-icon" title=" "/>
+                                                    <connections>
+                                                        <action selector="didTapReply:" destination="8gA-Mv-RaH" eventType="touchUpInside" id="2se-xL-ln6"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" misplaced="YES" restorationIdentifier="likeButton" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ib3-Ks-xOY">
                                                     <rect key="frame" x="258" y="98" width="86" height="44"/>
@@ -140,6 +146,9 @@
                                                     </constraints>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" image="favor-icon" title="0"/>
+                                                    <connections>
+                                                        <action selector="didTapFavorite:" destination="8gA-Mv-RaH" eventType="touchUpInside" id="iKh-Fb-p53"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" misplaced="YES" restorationIdentifier="dmButton" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rVg-HY-tRb">
                                                     <rect key="frame" x="352" y="99" width="54" height="44"/>
