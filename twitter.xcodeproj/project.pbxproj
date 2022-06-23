@@ -112,8 +112,6 @@
 				6AD278E320BC4B970085BC29 /* LaunchScreen.storyboard */,
 				6AD278E620BC4B970085BC29 /* Info.plist */,
 				6AD278E720BC4B970085BC29 /* main.m */,
-				2E9CBA1F28628D6000E84F94 /* TweetCell.h */,
-				2E9CBA2028628D6000E84F94 /* TweetCell.m */,
 			);
 			path = twitter;
 			sourceTree = "<group>";
@@ -139,6 +137,8 @@
 		6AD278FF20BCBF280085BC29 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				2E9CBA2028628D6000E84F94 /* TweetCell.m */,
+				2E9CBA1F28628D6000E84F94 /* TweetCell.h */,
 			);
 			path = Views;
 			sourceTree = "<group>";

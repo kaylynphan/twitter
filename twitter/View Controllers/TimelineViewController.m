@@ -67,7 +67,8 @@
 
 - (void)didTweet:(Tweet *)tweet {
     [self.arrayOfTweets addObject:tweet];
-    [self getTimeline]; 
+    [self getTimeline];
+    [self.tableView reloadData];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
