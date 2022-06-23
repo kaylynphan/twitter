@@ -10,6 +10,7 @@
 #import "Tweet.h"
 NS_ASSUME_NONNULL_BEGIN
 
+
 @interface TweetCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *profileImage;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
