@@ -67,7 +67,6 @@
 
 - (void)didTweet:(Tweet *)tweet {
     [self.arrayOfTweets addObject:tweet];
-    [self getTimeline];
     [self.tableView reloadData];
 }
 
@@ -80,6 +79,7 @@
     Tweet *tweet = self.arrayOfTweets[indexPath.row];
     NSLog(@"Name: %@", tweet.user.name);
     
+    cell.tweet = tweet;
     cell.nameLabel.text = tweet.user.name;
     cell.handleLabel.text = [NSString stringWithFormat:@"@%@", tweet.user.screenName];
     cell.textLabel.text = tweet.text;
