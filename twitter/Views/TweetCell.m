@@ -89,7 +89,6 @@
     NSLog(@"Cell data is being refreshed");
     self.retweetButton.titleLabel.text = [NSString stringWithFormat:@"%d",  self.tweet.retweetCount];
     self.likeButton.titleLabel.text = [NSString stringWithFormat:@"%d",  self.tweet.favoriteCount];
-    //[self.delegate didInteract];
 }
 
 @end
