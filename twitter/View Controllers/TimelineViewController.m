@@ -66,7 +66,7 @@
 }
 
 - (void)didTweet:(Tweet *)tweet {
-    [self.arrayOfTweets addObject:tweet];
+    [self.arrayOfTweets insertObject:tweet atIndex:0];
     [self.tableView reloadData];
 }
 
