@@ -75,6 +75,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    //NSLog(@"cellForRowAtIndexPath is being called");
     TweetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TweetCell" forIndexPath:indexPath];
     Tweet *tweet = self.arrayOfTweets[indexPath.row];
     NSLog(@"Name: %@", tweet.user.name);
@@ -84,9 +85,32 @@
     cell.handleLabel.text = [NSString stringWithFormat:@"@%@", tweet.user.screenName];
     cell.textLabel.text = tweet.text;
     
+    //sample tweet.createdAtString: "Wed Oct 10 20:19:24 +0000 2018"
+    /*
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"EEE MMM dd HH:mm:ss"];
+    NSDate *date = [dateFormatter dateFromString:tweet.createdAtString];
+    NSDate timeIntervalSinceReferenceDate
+    NSDate dateWithTimeInterval:<#(NSTimeInterval)#> sinceDate:<#(nonnull NSDate *)#>
+    */
+    
     cell.dateLabel.text = tweet.createdAtString;
-    cell.retweetButton.titleLabel.text = [NSString stringWithFormat:@"%d",  tweet.retweetCount];
-    cell.likeButton.titleLabel.text = [NSString stringWithFormat:@"%d",  tweet.favoriteCount];
+    //cell.retweetButton.titleLabel.text = [NSString stringWithFormat:@"%d",  tweet.retweetCount];
+    //cell.likeButton.titleLabel.text = [NSString stringWithFormat:@"%d",  tweet.favoriteCount];
+    
+    [cell.likeButton setTitle:[NSString stringWithFormat:@"%d", tweet.favoriteCount] forState:UIControlStateNormal];
+    [cell.retweetButton setTitle:[NSString stringWithFormat:@"%d", tweet.retweetCount] forState:UIControlStateNormal];
+    if (cell.tweet.favorited == YES) {
+        [cell.likeButton setImage:[UIImage imageNamed:@"favor-icon-red.png"] forState:UIControlStateNormal];
+    } else {
+        [cell.likeButton setImage:[UIImage imageNamed:@"favor-icon.png"] forState:UIControlStateNormal];
+    }
+    
+    if (cell.tweet.retweeted == YES) {
+        [cell.retweetButton setImage:[UIImage imageNamed:@"retweet-icon-green.png"] forState:UIControlStateNormal];
+    } else {
+        [cell.retweetButton setImage:[UIImage imageNamed:@"retweet-icon.png"] forState:UIControlStateNormal];
+    }
     
     //obtain user image
     cell.profileImage.image = nil;

@@ -22,8 +22,7 @@
 - (IBAction)didTapRetweet:(id)sender {
     if (self.tweet.retweeted == NO) {
         self.tweet.retweeted = YES;
-        self.tweet.retweetCount += 1;
-        [self refreshData];
+        self.tweet.retweetCount++;
         
         [[APIManager shared] retweet:self.tweet completion:^(Tweet *tweet, NSError *error) {
             if(error){
@@ -33,10 +32,11 @@
                 NSLog(@"Successfully retweeted the following Tweet: %@", tweet.text);
             }
         }];
+        
+        [self refreshData];
     } else {
         self.tweet.retweeted = NO;
-        self.tweet.retweetCount -= 1;
-        [self refreshData];
+        self.tweet.retweetCount--;
         
         [[APIManager shared] unretweet:self.tweet completion:^(Tweet *tweet, NSError *error) {
             if(error){
@@ -46,6 +46,8 @@
                 NSLog(@"Successfully unretweeted the following Tweet: %@", tweet.text);
             }
         }];
+        
+        [self refreshData];
     }
     
 }
@@ -53,8 +55,7 @@
 - (IBAction)didTapFavorite:(id)sender {
     if (self.tweet.favorited == NO) {
         self.tweet.favorited = YES;
-        self.tweet.favoriteCount += 1;
-        [self refreshData];
+        self.tweet.favoriteCount ++;
         
         [[APIManager shared] favorite:self.tweet completion:^(Tweet *tweet, NSError *error) {
             if(error){
@@ -64,10 +65,11 @@
                 NSLog(@"Successfully favorited the following Tweet: %@", tweet.text);
             }
         }];
+        
+        [self refreshData];
     } else {
         self.tweet.favorited = NO;
-        self.tweet.favoriteCount -= 1;
-        [self refreshData];
+        self.tweet.favoriteCount --;
         
         [[APIManager shared] unfavorite:self.tweet completion:^(Tweet *tweet, NSError *error) {
             if(error){
@@ -77,6 +79,8 @@
                 NSLog(@"Successfully unfavorited the following Tweet: %@", tweet.text);
             }
         }];
+        
+        [self refreshData];
     }
     
 }
@@ -88,8 +92,9 @@
 }
 
 -(void)refreshData {
-    self.likeButton.titleLabel.text = [NSString stringWithFormat:@"%d", self.tweet.favoriteCount];
-    self.retweetButton.titleLabel.text = [NSString stringWithFormat:@"%d", self.tweet.retweetCount];
+    NSLog(@"Cell data is being refreshed");
+    self.retweetButton.titleLabel.text = [NSString stringWithFormat:@"%d",  self.tweet.retweetCount];
+    self.likeButton.titleLabel.text = [NSString stringWithFormat:@"%d",  self.tweet.favoriteCount];
 }
 
 @end
