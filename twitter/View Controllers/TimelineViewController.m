@@ -70,6 +70,10 @@
     [self.tableView reloadData];
 }
 
+- (void)didInteract {
+    [self.tableView reloadData];
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.arrayOfTweets.count;
 }

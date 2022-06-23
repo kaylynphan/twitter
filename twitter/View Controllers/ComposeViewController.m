@@ -34,8 +34,6 @@
 }
 */
 
-
-
 - (IBAction)didTapPost:(id)sender {
     [[APIManager shared] postStatusWithText:self.textField.text completion:^(Tweet *tweet, NSError *error) {
         if(error){

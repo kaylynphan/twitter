@@ -30,10 +30,9 @@
             }
             else{
                 NSLog(@"Successfully retweeted the following Tweet: %@", tweet.text);
+                [self refreshData];
             }
         }];
-        
-        [self refreshData];
     } else {
         self.tweet.retweeted = NO;
         self.tweet.retweetCount--;
@@ -44,18 +43,16 @@
             }
             else{
                 NSLog(@"Successfully unretweeted the following Tweet: %@", tweet.text);
+                [self refreshData];
             }
         }];
-        
-        [self refreshData];
     }
-    
 }
 
 - (IBAction)didTapFavorite:(id)sender {
     if (self.tweet.favorited == NO) {
         self.tweet.favorited = YES;
-        self.tweet.favoriteCount ++;
+        self.tweet.favoriteCount++;
         
         [[APIManager shared] favorite:self.tweet completion:^(Tweet *tweet, NSError *error) {
             if(error){
@@ -63,13 +60,12 @@
             }
             else{
                 NSLog(@"Successfully favorited the following Tweet: %@", tweet.text);
+                [self refreshData];
             }
         }];
-        
-        [self refreshData];
     } else {
         self.tweet.favorited = NO;
-        self.tweet.favoriteCount --;
+        self.tweet.favoriteCount--;
         
         [[APIManager shared] unfavorite:self.tweet completion:^(Tweet *tweet, NSError *error) {
             if(error){
@@ -77,12 +73,10 @@
             }
             else{
                 NSLog(@"Successfully unfavorited the following Tweet: %@", tweet.text);
+                [self refreshData];
             }
         }];
-        
-        [self refreshData];
     }
-    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -95,6 +89,7 @@
     NSLog(@"Cell data is being refreshed");
     self.retweetButton.titleLabel.text = [NSString stringWithFormat:@"%d",  self.tweet.retweetCount];
     self.likeButton.titleLabel.text = [NSString stringWithFormat:@"%d",  self.tweet.favoriteCount];
+    //[self.delegate didInteract];
 }
 
 @end

@@ -10,6 +10,11 @@
 #import "Tweet.h"
 NS_ASSUME_NONNULL_BEGIN
 
+@protocol TweetCellDelegate
+
+- (void)didInteract;
+
+@end
 
 @interface TweetCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *profileImage;
@@ -22,6 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UIButton *likeButton;
 @property (weak, nonatomic) IBOutlet UIButton *dmButton;
 @property (weak, nonatomic) Tweet *tweet;
+@property (nonatomic, weak) id<TweetCellDelegate> delegate;
 
 - (void)refreshData;
 
