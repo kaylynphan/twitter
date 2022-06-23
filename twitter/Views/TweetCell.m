@@ -87,8 +87,10 @@
 
 -(void)refreshData {
     NSLog(@"Cell data is being refreshed");
-    self.retweetButton.titleLabel.text = [NSString stringWithFormat:@"%d",  self.tweet.retweetCount];
     self.likeButton.titleLabel.text = [NSString stringWithFormat:@"%d",  self.tweet.favoriteCount];
+    self.likeButton.imageView.image = (self.tweet.favorited ? [UIImage imageNamed:@"favor-icon-red.png"] : [UIImage imageNamed:@"favor-icon.png"]);
+    self.retweetButton.titleLabel.text = [NSString stringWithFormat:@"%d",  self.tweet.retweetCount];
+    self.retweetButton.imageView.image = (self.tweet.retweeted ? [UIImage imageNamed:@"retweet-icon-green.png"] : [UIImage imageNamed:@"retweet-icon.png"]);
 }
 
 @end
