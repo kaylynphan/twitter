@@ -88,6 +88,18 @@
     cell.retweetButton.titleLabel.text = [NSString stringWithFormat:@"%d",  tweet.retweetCount];
     cell.likeButton.titleLabel.text = [NSString stringWithFormat:@"%d",  tweet.favoriteCount];
     
+    if (cell.tweet.favorited == YES) {
+        [cell.likeButton setImage:[UIImage imageNamed:@"favor-icon-red.png"] forState:UIControlStateNormal];
+    } else {
+        [cell.likeButton setImage:[UIImage imageNamed:@"favor-icon.png"] forState:UIControlStateNormal];
+    }
+    
+    if (cell.tweet.favorited == YES) {
+        [cell.retweetButton setImage:[UIImage imageNamed:@"retweet-icon-green.png"] forState:UIControlStateNormal];
+    } else {
+        [cell.retweetButton setImage:[UIImage imageNamed:@"retweet-icon.png"] forState:UIControlStateNormal];
+    }
+    
     //obtain user image
     cell.profileImage.image = nil;
     NSData *imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString:tweet.user.profilePicture]];
