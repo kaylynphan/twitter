@@ -10,14 +10,14 @@ The following **core** features are completed:
 
 **A user should**
 
-- [ ] See an app icon in the home screen and a styled launch screen
-- [ ] Be able to log in using their Twitter account
-- [ ] See at latest the latest 20 tweets for a Twitter account in a Table View
-- [ ] Be able to refresh data by pulling down on the Table View
+- [x] See an app icon in the home screen and a styled launch screen
+- [x] Be able to log in using their Twitter account
+- [x] See at latest the latest 20 tweets for a Twitter account in a Table View
+- [x] Be able to refresh data by pulling down on the Table View
 - [ ] Be able to like and retweet from their Timeline view
-- [ ] Only be able to access content if logged in
-- [ ] Each tweet should display user profile picture, username, screen name, tweet text, timestamp, as well as buttons and labels for favorite, reply, and retweet counts.
-- [ ] Compose and post a tweet from a Compose Tweet view, launched from a Compose button on the Nav bar.
+- [x] Only be able to access content if logged in
+- [x] Each tweet should display user profile picture, username, screen name, tweet text, timestamp, as well as buttons and labels for favorite, reply, and retweet counts.
+- [x] Compose and post a tweet from a Compose Tweet view, launched from a Compose button on the Nav bar.
 - [ ] See Tweet details in a Details view
 - [ ] App should render consistently all views and subviews in recent iPhone models and all orientations
 
@@ -25,7 +25,7 @@ The following **stretch** features are implemented:
 
 **A user could**
 
-- [ ] Be able to **unlike** or **un-retweet** by tapping a liked or retweeted Tweet button, respectively. (Doing so will decrement the count for each)
+- [x] Be able to **unlike** or **un-retweet** by tapping a liked or retweeted Tweet button, respectively. (Doing so will decrement the count for each)
 - [ ] Click on links that appear in Tweets
 - [ ] See embedded media in Tweets that contain images or videos
 - [ ] Reply to any Tweet (**2 points**)
