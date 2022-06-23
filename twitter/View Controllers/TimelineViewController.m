@@ -79,7 +79,7 @@
     //NSLog(@"cellForRowAtIndexPath is being called");
     TweetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TweetCell" forIndexPath:indexPath];
     Tweet *tweet = self.arrayOfTweets[indexPath.row];
-    NSLog(@"Name: %@", tweet.user.name);
+    //NSLog(@"Name: %@", tweet.user.name);
     
     cell.tweet = tweet;
     cell.nameLabel.text = tweet.user.name;
@@ -87,17 +87,26 @@
     cell.textLabel.text = tweet.text;
     
     //sample tweet.createdAtString: "Wed Oct 10 20:19:24 +0000 2018"
+    
     /*
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"EEE MMM dd HH:mm:ss"];
+    dateFormatter.dateFormat = @"E MMM d HH:mm:ss Z y";
     NSDate *date = [dateFormatter dateFromString:tweet.createdAtString];
-    NSDate timeIntervalSinceReferenceDate
-    NSDate dateWithTimeInterval:<#(NSTimeInterval)#> sinceDate:<#(nonnull NSDate *)#>
-    */
+    NSString *dateSince = date.shortTimeAgoSinceNow;
+    NSLog(@"dateSince: %@", dateSince);
+    if (([dateSince containsString:@"d"] ||
+         [dateSince containsString:@"w"] ||
+         [dateSince containsString:@"M"] ||
+         [dateSince containsString:@"y"])) {
+        dateFormatter.dateStyle = NSDateFormatterShortStyle;
+        dateFormatter.timeStyle = NSDateFormatterNoStyle;
+        cell.tweet.createdAtString = [dateFormatter stringFromDate:date];
+    } else {
+        cell.tweet.createdAtString = dateSince;
+    }
+     */
     
     cell.dateLabel.text = tweet.createdAtString;
-    //cell.retweetButton.titleLabel.text = [NSString stringWithFormat:@"%d",  tweet.retweetCount];
-    //cell.likeButton.titleLabel.text = [NSString stringWithFormat:@"%d",  tweet.favoriteCount];
     
     [cell.likeButton setTitle:[NSString stringWithFormat:@"%d", tweet.favoriteCount] forState:UIControlStateNormal];
     [cell.retweetButton setTitle:[NSString stringWithFormat:@"%d", tweet.retweetCount] forState:UIControlStateNormal];
