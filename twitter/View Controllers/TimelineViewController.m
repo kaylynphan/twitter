@@ -118,7 +118,9 @@
         NSURL *murl = [NSURL URLWithString:mURLString];
         NSData *murlData = [NSData dataWithContentsOfURL:murl];
         cell.tweetImage.image = [UIImage imageWithData:murlData];
+        [[cell tweetImageHeightConstraint] setConstant: 100];
     } else {
+        [[cell tweetImageHeightConstraint] setConstant: 0];
     }
     
     return cell;

@@ -13,7 +13,6 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
 }
 
 - (IBAction)didTapReply:(id)sender {
