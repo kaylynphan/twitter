@@ -87,27 +87,7 @@
     cell.handleLabel.text = [NSString stringWithFormat:@"@%@", tweet.user.screenName];
     cell.textLabel.text = tweet.text;
     
-    //sample tweet.createdAtString: "Wed Oct 10 20:19:24 +0000 2018"
-    
-    /*
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    dateFormatter.dateFormat = @"E MMM d HH:mm:ss Z y";
-    NSDate *date = [dateFormatter dateFromString:tweet.createdAtString];
-    NSString *dateSince = date.shortTimeAgoSinceNow;
-    NSLog(@"dateSince: %@", dateSince);
-    if (([dateSince containsString:@"d"] ||
-         [dateSince containsString:@"w"] ||
-         [dateSince containsString:@"M"] ||
-         [dateSince containsString:@"y"])) {
-        dateFormatter.dateStyle = NSDateFormatterShortStyle;
-        dateFormatter.timeStyle = NSDateFormatterNoStyle;
-        cell.tweet.createdAtString = [dateFormatter stringFromDate:date];
-    } else {
-        cell.tweet.createdAtString = dateSince;
-    }
-     */
-    
-    cell.dateLabel.text = tweet.createdAtString;
+    cell.dateLabel.text = [NSString stringWithFormat:@"⋅%@", tweet.createdAtString];
     
     [cell.likeButton setTitle:[NSString stringWithFormat:@"%d", tweet.favoriteCount] forState:UIControlStateNormal];
     [cell.retweetButton setTitle:[NSString stringWithFormat:@"%d", tweet.retweetCount] forState:UIControlStateNormal];
@@ -127,6 +107,10 @@
     cell.profileImage.image = nil;
     NSData *imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString:tweet.user.profilePicture]];
     cell.profileImage.image = [UIImage imageWithData: imageData];
+    
+    cell.profileImage.layer.cornerRadius = CGRectGetHeight(cell.profileImage.frame) / 2;
+    cell.profileImage.clipsToBounds = YES;
+    
     return cell;
 }
 /*

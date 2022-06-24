@@ -26,7 +26,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.nameLabel.text = self.tweet.user.name;
-    self.handleLabel.text = self.tweet.user.screenName;
+    self.handleLabel.text = [NSString stringWithFormat:@"@%@", self.tweet.user.screenName];
     self.textLabel.text = self.tweet.text;
     self.dateLabel.text = self.tweet.createdAtString;
     self.retweetsLabel.text = [NSString stringWithFormat:@"%d Retweets", self.tweet.retweetCount];
@@ -37,6 +37,8 @@
     self.profileImage.image = nil;
     NSData *imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString:self.tweet.user.profilePicture]];
     self.profileImage.image = [UIImage imageWithData: imageData];
+    self.profileImage.layer.cornerRadius = CGRectGetHeight(self.profileImage.frame) / 4;
+    self.profileImage.clipsToBounds = YES;
 }
 
 /*

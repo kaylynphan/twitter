@@ -153,9 +153,9 @@
 				6AD2790520BCC0380085BC29 /* LoginViewController.m */,
 				2E9CBA22286397F500E84F94 /* ComposeViewController.h */,
 				2E9CBA23286397F500E84F94 /* ComposeViewController.m */,
-				6AD2790720BCC04D0085BC29 /* TimelineViewController.h */,
 				2E9CBA2528661EEC00E84F94 /* DetailsViewController.h */,
 				2E9CBA2628661EEC00E84F94 /* DetailsViewController.m */,
+				6AD2790720BCC04D0085BC29 /* TimelineViewController.h */,
 				6AD2790820BCC04D0085BC29 /* TimelineViewController.m */,
 			);
 			path = "View Controllers";
