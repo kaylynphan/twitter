@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *retweetsLabel;
 @property (weak, nonatomic) IBOutlet UILabel *likesLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *tweetImage;
 - (IBAction)didTapRetweet:(id)sender;
 - (IBAction)didTapLike:(id)sender;
 
@@ -32,13 +33,20 @@
     self.retweetsLabel.text = [NSString stringWithFormat:@"%d Retweets", self.tweet.retweetCount];
     self.likesLabel.text = [NSString stringWithFormat:@"%d Likes", self.tweet.favoriteCount];;
     
-    
     // handle user image
     self.profileImage.image = nil;
     NSData *imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString:self.tweet.user.profilePicture]];
     self.profileImage.image = [UIImage imageWithData: imageData];
     self.profileImage.layer.cornerRadius = CGRectGetHeight(self.profileImage.frame) / 4;
     self.profileImage.clipsToBounds = YES;
+    
+    NSString *mURLString = self.tweet.mediaURLString;
+    if(mURLString != nil){
+        NSURL *murl = [NSURL URLWithString:mURLString];
+        NSData *murlData = [NSData dataWithContentsOfURL:murl];
+        self.tweetImage.image = [UIImage imageWithData:murlData];
+    } else {
+    }
 }
 
 /*
