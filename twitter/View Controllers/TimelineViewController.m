@@ -86,6 +86,7 @@
     cell.nameLabel.text = tweet.user.name;
     cell.handleLabel.text = [NSString stringWithFormat:@"@%@", tweet.user.screenName];
     cell.textLabel.text = tweet.text;
+    [cell.textLabel sizeToFit];
     
     cell.dateLabel.text = [NSString stringWithFormat:@"⋅%@", tweet.createdAtString];
     
@@ -110,6 +111,15 @@
     
     cell.profileImage.layer.cornerRadius = CGRectGetHeight(cell.profileImage.frame) / 2;
     cell.profileImage.clipsToBounds = YES;
+    
+    cell.tweetImage.image = nil;
+    NSString *mURLString = cell.tweet.mediaURLString;
+    if(mURLString != nil){
+        NSURL *murl = [NSURL URLWithString:mURLString];
+        NSData *murlData = [NSData dataWithContentsOfURL:murl];
+        cell.tweetImage.image = [UIImage imageWithData:murlData];
+    } else {
+    }
     
     return cell;
 }

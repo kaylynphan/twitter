@@ -57,6 +57,15 @@
         } else {
             self.createdAtString = dateSince;
         }
+        
+        NSArray *media = dictionary[@"entities"][@"media"];
+        if (media != nil) {
+            self.mediaURLString = media[0][@"media_url_https"];
+            NSLog(self.mediaURLString);
+        } else {
+            NSLog(@"This tweet has not media");
+        }
+        self.user = [[User alloc] initWithDictionary:user];
     }
     return self;
 }
