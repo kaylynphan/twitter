@@ -32,6 +32,7 @@
     self.retweetsLabel.text = [NSString stringWithFormat:@"%d Retweets", self.tweet.retweetCount];
     self.likesLabel.text = [NSString stringWithFormat:@"%d Likes", self.tweet.favoriteCount];;
     
+    
     // handle user image
     self.profileImage.image = nil;
     NSData *imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString:self.tweet.user.profilePicture]];
