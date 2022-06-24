@@ -8,10 +8,10 @@
 
 #import "ComposeViewController.h"
 #import "APIManager.h"
-#import "TimelineViewController.h""
+#import "TimelineViewController.h"
 
 @interface ComposeViewController ()
-@property (weak, nonatomic) IBOutlet UITextView *textField;
+@property (weak, nonatomic) IBOutlet UITextField *textField;
 - (IBAction)didTapClose:(id)sender;
 - (IBAction)didTapPost:(id)sender;
 

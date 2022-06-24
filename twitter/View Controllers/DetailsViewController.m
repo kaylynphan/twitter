@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *retweetsLabel;
 @property (weak, nonatomic) IBOutlet UILabel *likesLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *tweetImage;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *tweetImageHeightConstraint;
 - (IBAction)didTapRetweet:(id)sender;
 - (IBAction)didTapLike:(id)sender;
 
@@ -29,6 +30,7 @@
     self.nameLabel.text = self.tweet.user.name;
     self.handleLabel.text = [NSString stringWithFormat:@"@%@", self.tweet.user.screenName];
     self.textLabel.text = self.tweet.text;
+    [self.textLabel sizeToFit];
     self.dateLabel.text = self.tweet.createdAtString;
     self.retweetsLabel.text = [NSString stringWithFormat:@"%d Retweets", self.tweet.retweetCount];
     self.likesLabel.text = [NSString stringWithFormat:@"%d Likes", self.tweet.favoriteCount];;
@@ -37,7 +39,7 @@
     self.profileImage.image = nil;
     NSData *imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString:self.tweet.user.profilePicture]];
     self.profileImage.image = [UIImage imageWithData: imageData];
-    self.profileImage.layer.cornerRadius = CGRectGetHeight(self.profileImage.frame) / 4;
+    self.profileImage.layer.cornerRadius = CGRectGetHeight(self.profileImage.frame) / 2;
     self.profileImage.clipsToBounds = YES;
     
     NSString *mURLString = self.tweet.mediaURLString;
@@ -45,7 +47,9 @@
         NSURL *murl = [NSURL URLWithString:mURLString];
         NSData *murlData = [NSData dataWithContentsOfURL:murl];
         self.tweetImage.image = [UIImage imageWithData:murlData];
+        [self.tweetImageHeightConstraint setConstant: 300];
     } else {
+        [self.tweetImageHeightConstraint setConstant: 0];
     }
 }
 
